@@ -1,0 +1,147 @@
+<div>
+
+    <form #bookingForm="ngForm" (ngSubmit)="bookBarber()" autocomplete="off" class="formcolor" style="color: white;">
+        <h2>{{formCommonText | uppercase}}</h2>
+        <div class="input-box-container">
+    
+            <input class="input-box" type="text" [(ngModel)]="barber.firstName" name="firstName" placeholder="First name">
+    
+            <input class="input-box" type="text" [(ngModel)]="barber.lastName" name="lastName" placeholder="Last name">
+        </div>
+        <div class="input-box-container">
+    
+            <input class="input-box" type="email" [(ngModel)]="barber.email" name="email" placeholder="Email">
+            <input class="input-box" type="text" [(ngModel)]="barber.contactNumber" name="contactNumber" placeholder="Contact Number">
+        </div>
+
+        <select  class="input-box"  name="barberName" [(ngModel)]="barber.id" (ngModelChange)="onSelectBarber($event)">
+            <!-- <option value="" [selected]="!barber.name">Select Barber</option> -->
+            <option *ngFor="let barber of barbers" [value]="barber.id">
+                {{barber.firstName}}
+                {{barber.lastName}}
+            </option>
+        </select>
+       
+        
+        <select  class="input-box"  name="service" [(ngModel)]="barber.service" (ngModelChange)="onSelectService($event)">
+            <!-- <option [value]="null" selected>Select Service</option> -->
+            <option *ngFor="let service of services" [value]="service.price">{{service.name}}
+            </option>
+        </select>
+    
+        <div class="input-box-container">
+            <input 
+               [disabled]="!barberSet"
+                style="background-color: white;" 
+                class="input-box" 
+                placeholder="Select Date" 
+                angular-mydatepicker name="mydate"
+                (click)="dp.toggleCalendar()" 
+                [(ngModel)]="barber.date" 
+                [options]="myDpOptions" 
+                #dp="angular-mydatepicker"
+                (dateChanged)="onDateChanged($event)" />
+
+                <!-- [ngxTimepicker]="picker"  -->
+            <input 
+                [disabled]="!daySet || !priceSet"
+                style="background-color: white;" 
+                class="input-box" 
+                name="time" 
+                [ngxTimepicker]="appendedToInput"
+                [(ngModel)]="barber.time" 
+                placeholder="Select Time"
+                [format]="12"
+                [min]= "MINTIME"
+                [max]="MAXTIME"
+                >
+                <!-- [min]= "MINTIME" -->
+            <ngx-material-timepicker 
+                (timeSet)="onTimeSet($event)"
+                #appendedToInput
+                [appendToInput]="true" 
+                #picker [theme]="darkTheme"
+                >
+            </ngx-material-timepicker>
+        </div>
+
+        <div>
+            <input style="background-color: white;" 
+                name="barber.price" 
+                type="text" 
+                class="input-box" 
+                disabled
+                [value]="barber.price ? 'Price is '+ barber.price + ' €' : 'Select any service'"
+            >
+        </div>
+
+        <div>
+            <button class="btncolor">{{formButtonText | uppercase}}</button>
+        </div>
+    </form>
+</div>
+<!-- <form [formGroup]='bookingForm' (ngSubmit)='bookBarber()' autocomplete="off" class="formcolor" style="color: white;">
+    <h2>{{formCommonText | uppercase}}</h2>
+    <div>
+
+        <input type="text"  placeholder="First name">
+        <input type="text"  placeholder="Last name">
+    </div>
+    <div>
+
+        <input type="text"  placeholder="Email">
+        <input type="text"  placeholder="Contact Number">
+    </div>
+    <div class="form-group">
+
+       
+        <select [formControlName]="'barber'">
+            <option [ngValue]="null">Select Barber</option>
+            <option *ngFor="let barber of barbers" [ngValue]="barber.id">
+                {{barber.firstName}}
+                {{barber.lastName}}
+            </option>
+        </select>
+
+        <select [formControlName]="'service'">
+            <option [value]="null" selected>Select Service</option>
+            <option *ngFor="let service of services" [value]="service.id">{{service.name}}
+            </option>
+        </select>
+
+    </div>
+    <div>
+      
+
+        <input type="text"  placeholder="Select Date">
+        <input type="text"  placeholder="Select Time">
+    </div>
+    <div>
+
+        <input type="text"  placeholder="Service Price">
+    </div>
+    <div>
+        <button class="btncolor">{{formButtonText | uppercase}}</button>
+    </div>
+</form>
+
+
+
+<p>Form Value: {{bookingForm.value | json}}</p>
+<p>Form Status: {{bookingForm.status | json}}</p> -->
+
+
+ <!-- <div>
+            <input style="background-color: white;" 
+            name="barber.service" 
+            class="input-box" 
+            disabled
+            type="text" 
+            [ngModel]="barber.service" 
+            (ngModelChange)="barber.service !== null ? 'Price is'  : 'Select'"
+            placeholder="Select any service"
+            >
+        </div> -->
+
+          <!-- placeholder={{barber.price}} -->
+            <!-- placeholder="{{priceSet}} ? Price is {{barber.price} : Select any service}" -->
