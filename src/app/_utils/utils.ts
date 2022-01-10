@@ -1,8 +1,3 @@
-
-
-
-//   }
-
 export default class Utils {
     
     static getDateTime(time: string, dateUnix: number) {

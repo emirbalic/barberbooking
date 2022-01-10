@@ -19,7 +19,7 @@ export class BookingService {
 
   getBarbers() {
 
-    return this.http.get<Barber[]>(this.baseUrl + 'barbers')//<Barber[]>
+    return this.http.get<Barber[]>(this.baseUrl + 'barbers')
       .pipe(
         map((barbers:Barber[]) => {
           
@@ -33,7 +33,7 @@ export class BookingService {
   getAppointments() {
     return this.http.get(this.baseUrl +'appointments').pipe(//<Appointment>
       map(appointments => {
-        // console.log(appointments)
+        
         return appointments
       })
     )
@@ -65,15 +65,5 @@ export class BookingService {
     )
   }
 }
-// return this.http.post(this.baseUrl + 'account/login', model).pipe(
-//   map((response: User) => {
-//     const user = response;
-//     if (user) {
-//       this.setCurrentUser(user);
-//     }
-//   })
-// )
 
-// "startDate": 1579698600, "barberId": 2,
-// "serviceId": 2
 
