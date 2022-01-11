@@ -7,7 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  success: boolean = false;
   constructor(
   ) { }
+
+  addSucces() {
+    
+    this.success = true;
+    
+  }
 
 }

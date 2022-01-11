@@ -1,6 +1,16 @@
-<!-- <app-header></app-header>
-<app-home></app-home> -->
-<app-booking></app-booking>
-<!-- <app-succes></app-succes> -->
-
-	
+<!-- class="maincolor pad"  style="background-color: rgb(252, 244, 234)"-->
+<!-- style="background-color: rgb(252, 244, 234); position: relative;" -->
+<div id="container">
+    <div class="centeredUp" *ngIf="!success">
+        <app-header></app-header>
+    </div>
+    <div id="imgbarber" *ngIf="!success" >     
+        <app-home></app-home>
+    </div>
+    <div id="form" *ngIf="!success" >
+        <app-booking (succesEvent)="addSucces()"></app-booking>
+    </div>
+    <div *ngIf="success">
+        <app-succes></app-succes>
+    </div>
+</div>

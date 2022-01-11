@@ -1,13 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
-		
-.maincolor {
-    background-color: rgb(252, 244, 234);
-}
-.formcolor {
-    background-color: rgb(29, 40, 66);
-}
-.btncolor {
-    background-color: rgb(255, 147, 104);
+
+html {
+  background-color: rgb(252, 244, 234);
 }
 
-			
+html, body {
+    font-family: 'Montserrat', sans-serif;
+}
+.maincolor {
+  background-color: rgb(252, 244, 234);
+}
+.formcolor {
+  background-color: rgb(29, 40, 66);
+}
+.btncolor {
+  background-color: rgb(255, 147, 104);
+}
+.validation {
+  color: rgb(248, 53, 53);
+  text-align: justify;
+  font-size: 0.55rem;
+}
+
+.pad {
+  position: absolute;
+}
+.centeredUp {
+    margin-top: 0;
+    position: fixed; /* or absolute */
+    top: 0;
+    left: 12%;
+}
+.centered {
+  position: fixed; /* or absolute */
+  top: 23%;
+  left: 13%;
+}
+.centeredleft {
+  position: fixed; /* or absolute */
+  top: 35%;
+  left: 50%;
+}
+
+.placed {
+    border: 2px solid black;
+    padding: 5px;
+}

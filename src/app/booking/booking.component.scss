@@ -1,40 +1,86 @@
-// input[type="text"] {
-//   width: 40%;
-//   padding: 12px 20px;
-//   margin: 8px 0;
-//   box-sizing: border-box;
-// }
+.table {
+  padding: 4px;
+  max-width: 330px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 4px 9px;
+}
+.table-cell {
+  flex: 1 40%;
+  margin: 4px 4px;
+}
+
+.colspan-3 {
+  font-family: "Squada One", sans-sherif;
+  //   font-family: 'Verdana', sans-sherif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  flex: 1 100%;
+  width: 100%;
+}
+
 select {
-  width: 40%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
+  width: 98%;
 }
-
-form {
-  width: 500px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
+.wide {
+  width: 19.4rem;
 }
-
-
+input,
+select {
+  color: gray;
+  height: 30px;
+  padding-left: 4px;
+}
 button {
+  font-family: "Roboto Slab", sans-sherif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 2px;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 50px;
   color: white;
 }
 
-.input-box-container {
-  position: relative;
-}
-.input-box {
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
+// select {
+//   width: 100%;
+//   padding: 12px 12px;
+//   margin: 4px 0;
+//   box-sizing: border-box;
+// }
+
+// form {
+//   width: 420px;
+//   height: 500px;
+//   padding: 12px 20px;
+//   margin: 8px 0;
+//   box-sizing: border-box;
+// }
+
+// button {
+//   width: 100%;
+//   padding: 12px 20px;
+//   margin: 8px 0;
+//   box-sizing: border-box;
+//   box-sizing: border-box;
+//   border-radius: 50px;
+//   color: white;
+// }
+
+// .input-box-container {
+//   position: relative;
+// }
+// .input-box {
+//   padding: 4px 8px;
+//   border-radius: 2px;
+//   border: 1px solid #ccc;
+//   font-size: 16px;
+// }
+
+// table {
+//   table-layout: fixed;
+// }
