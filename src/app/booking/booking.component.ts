@@ -1,5 +1,3 @@
-import { Booking } from './../_models/booking';
-import { Barber } from './../_models/barber';
 import { Component, OnChanges, OnInit, Output, EventEmitter } from '@angular/core';
 // import { FormControl, FormGroup } from '@angular/forms';
 import { BookingService } from '../_services/booking.service';
@@ -9,6 +7,8 @@ import { IAngularMyDpOptions, IMyDateModel, Year } from 'angular-mydatepicker';
 import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 
 import Utils from '../_utils/utils';
+import { NgForm } from '@angular/forms';
+import { Booking } from '../_models/booking';
 
 
 
@@ -103,6 +103,9 @@ export class BookingComponent implements OnInit {
   //===VALIDATION PATCHES===
   validateBarber: boolean = false;
   validateService: boolean = false;
+
+  phoneValidatorPattern = new RegExp("^\\d{9}$");
+  contactNumber?: string;
 
   constructor(private bookingService: BookingService) {//, private ref: ChangeDetectorRef
   }
@@ -364,6 +367,8 @@ export class BookingComponent implements OnInit {
   }
 
   //===SUBMIT===
+  isValidFormSubmitted = false;  
+
   bookBarber() {
     let dateUnix = this.barber.date.singleDate.epoc * 1000;
     let exactDate = Utils.getDateTime(this.barber.time, dateUnix);
@@ -377,5 +382,14 @@ export class BookingComponent implements OnInit {
 
     this.bookingService.bookAppointment(booking).subscribe();//response => {}
     this.addSuccess();
+  }
+  onFormSubmit(bookingForm: NgForm){
+
+    this.isValidFormSubmitted = false;  
+   if (bookingForm.invalid) {  
+      return;  
+   }  
+   this.isValidFormSubmitted = true; 
+   this.bookBarber(); 
   }
 }

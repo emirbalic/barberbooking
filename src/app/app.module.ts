@@ -14,6 +14,11 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { SuccesComponent } from './succes/succes.component';
 
+// import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+// const maskConfig: Partial<IConfig> = {
+//   validation: false,
+// };
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +33,9 @@ import { SuccesComponent } from './succes/succes.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxMaterialTimepickerModule,//.setLocale('ar-AE')
-    AngularMyDatePickerModule
+    AngularMyDatePickerModule,
+    // NgxMaskModule.forRoot(maskConfig),
+
     ],
   providers: [],
   bootstrap: [AppComponent]
