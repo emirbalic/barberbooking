@@ -5,30 +5,32 @@
             <div class="table-cell colspan-3">
                 <h3>{{formCommonText | uppercase}}</h3>
               </div>
-            <div class="table-cell">
+             
+
+
+            <div class="table-cell mobilehidden">
                 <input required #firstName="ngModel" id="firstName" ngModel  type="text" [(ngModel)]="barber.firstName" name="firstName" placeholder="First name">
-                <!-- <br/> -->
+               
                 <span class="validation" *ngIf="firstName.invalid && firstName.touched">
                     Please enter your first name
                   </span>
             </div>
-            <div class="table-cell">
+            <div class="table-cell mobilehidden">
                 <input type="text" required #lastName="ngModel" id="lastName" ngModel [(ngModel)]="barber.lastName" name="lastName" placeholder="Last name">
                 <span class="validation" *ngIf="lastName.invalid && lastName.touched">
                     Please enter your last name
                   </span>
             </div>
-            <div class="table-cell">
+            <div class="table-cell mobilehidden">
                 <input  #email="ngModel" type="email" ngModel required email [(ngModel)]="barber.email" name="email" placeholder="Email">
-                    <!-- <br/> -->
+                   
                 <span class="validation" *ngIf="email.invalid && email.touched">
                      Please enter a valid email
                 </span>
             </div>
-            <div class="table-cell">
+            <div class="table-cell mobilehidden">
                 <input required ngModel type="text" [pattern]="phoneValidatorPattern" [ngModel]="contactNumber" #contactNumber="ngModel" [(ngModel)]="barber.contactNumber" name="contactNumber" placeholder="Contact Number">
                 <span class="validation" *ngIf="contactNumber.invalid && contactNumber.touched &&contactNumber.errors">
-                    <!-- Please enter phone number -->
                     <span *ngIf="contactNumber.errors.required">
                         Please enter phone number
                       </span>
@@ -37,8 +39,8 @@
                       </span>
                   </span>
             </div>
-            <div class="table-cell">
-                <select required ngModel #barberName="ngModel" id="barberName" name="barberName" [(ngModel)]="barber.id" (ngModelChange)="onSelectBarber($event)">
+            <div class="table-cell mobilehidden">
+                <select required ngModel #barberName="ngModel" name="barberName" [(ngModel)]="barber.id" (ngModelChange)="onSelectBarber($event)">
                     <option *ngFor="let barber of barbers" [value]="barber.id">
                         {{barber.firstName}}
                         {{barber.lastName}}
@@ -48,7 +50,7 @@
                     Please pick a barber
                 </span>
             </div>
-            <div class="table-cell">
+            <div class="table-cell mobilehidden">
                 <select required ngModel #service="ngModel"  name="service" [(ngModel)]="barber.service" (ngModelChange)="onSelectService($event)">
                     <option *ngFor="let service of services" [value]="service.price">{{service.name}}
                    </option>
@@ -57,7 +59,7 @@
                 Please pick a service
               </span>          
             </div>
-            <div class="table-cell">
+            <div class="table-cell mobilehidden">
                 <input  
                     [disabled]="!barberSet"
                      style="background-color: white;" 
@@ -71,7 +73,7 @@
                      #dp="angular-mydatepicker"
                      (dateChanged)="onDateChanged($event)" />
             </div>
-            <div class="table-cell">
+            <div class="table-cell mobilehidden">
                 <input 
                     [disabled]="!daySet || !priceSet"
                     style="background-color: white;" 
@@ -93,7 +95,134 @@
                     >
             </ngx-material-timepicker>           
             </div>
+
+
+
+
+            <div class="table-cell colspan-3 desktophiden">
+                <input 
+                    required #firstName="ngModel"  
+                    ngModel  type="text" 
+                    [(ngModel)]="barber.firstName" 
+                    name="firstName" 
+                    class="wide" 
+                    placeholder="First name">
+               
+                <span class="validation" *ngIf="firstName.invalid && firstName.touched">
+                    Please enter your first name
+                  </span>
+            </div>
+            <div class="table-cell colspan-3 desktophiden">
+                <input 
+                    type="text"
+                    class="wide"  
+                    required 
+                    #lastName="ngModel"  
+                    ngModel 
+                    [(ngModel)]="barber.lastName" 
+                    name="lastName" 
+                    placeholder="Last name">
+                <span class="validation" *ngIf="lastName.invalid && lastName.touched">
+                    Please enter your last name
+                  </span>
+            </div>
+            <div class="table-cell colspan-3  desktophiden">
+                <input  
+                    #email="ngModel" 
+                    type="email" 
+                    ngModel 
+                    required 
+                    email 
+                    [(ngModel)]="barber.email" 
+                    name="email" 
+                    class="wide" 
+                    placeholder="Email">
+                   
+                <span class="validation" *ngIf="email.invalid && email.touched">
+                     Please enter a valid email
+                </span>
+            </div>
+            <div class="table-cell colspan-3 desktophiden">
+                <input required ngModel type="text" 
+                    [pattern]="phoneValidatorPattern" 
+                    [ngModel]="contactNumber" 
+                    #contactNumber="ngModel" 
+                    [(ngModel)]="barber.contactNumber" 
+                    name="contactNumber"
+                    class="wide"  
+                    placeholder="Contact Number">
+                <span class="validation" *ngIf="contactNumber.invalid && contactNumber.touched &&contactNumber.errors">
+                    <span *ngIf="contactNumber.errors.required">
+                        Please enter phone number
+                      </span>
+                      <span *ngIf="contactNumber.errors.pattern">
+                        Number not valid
+                      </span>
+                  </span>
+            </div>
+            <div class="table-cell colspan-3 wide desktophiden">
+                <select required ngModel #barberName="ngModel" name="barberName" [(ngModel)]="barber.id" (ngModelChange)="onSelectBarber($event)">
+                    <option *ngFor="let barber of barbers" [value]="barber.id">
+                        {{barber.firstName}}
+                        {{barber.lastName}}
+                    </option>
+                </select>
+                <span class="validation" *ngIf="barberName.touched && !validateBarber ">
+                    Please pick a barber
+                </span>
+            </div>
+            <div class="table-cell colspan-3 wide desktophiden">
+                <select required ngModel #service="ngModel"  name="service" [(ngModel)]="barber.service" (ngModelChange)="onSelectService($event)">
+                    <option *ngFor="let service of services" [value]="service.price">{{service.name}}
+                   </option>
+               </select>  
+               <span class="validation" *ngIf="service.touched && !validateService">
+                Please pick a service
+              </span>          
+            </div>
+            <div class="table-cell colspan-3 desktophiden">
+                <input  
+                    [disabled]="!barberSet"
+                     style="background-color: white;" 
+                     class="input-box" 
+                     placeholder="Select Date" 
+                     angular-mydatepicker 
+                     name="mydate"
+                     (click)="dp.toggleCalendar()" 
+                     [(ngModel)]="barber.date" 
+                     [options]="myDpOptions" 
+                     #dp="angular-mydatepicker"
+                     (dateChanged)="onDateChanged($event)" 
+                     class="wide" />
+            </div>
+            <div class="table-cell colspan-3 desktophiden">
+                <input 
+                    [disabled]="!daySet || !priceSet"
+                    style="background-color: white;" 
+                    class="input-box" 
+                    name="time" 
+                    [ngxTimepicker]="appendedToInput"
+                    [(ngModel)]="barber.time" 
+                    placeholder="Select Time"
+                    [format]="12"
+                    [min]= "MINTIME"
+                    [max]="MAXTIME"
+                    class="wide" 
+                    >
+
+                <ngx-material-timepicker 
+                    (timeSet)="onTimeSet($event)"
+                    #appendedToInput
+                    [appendToInput]="true" 
+                    #picker [theme]="darkTheme"
+                    >
+            </ngx-material-timepicker>           
+            </div>
             
+
+
+
+
             <div class="table-cell colspan-3">
                 <input style="background-color: white;"
                 name="barber.price" 

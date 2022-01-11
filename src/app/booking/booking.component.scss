@@ -6,13 +6,13 @@
   margin: 4px 9px;
 }
 .table-cell {
-  flex: 1 40%;
-  margin: 4px 4px;
+  
+    flex: 1 40%;
+    margin: 4px 4px;
 }
 
 .colspan-3 {
   font-family: "Squada One", sans-sherif;
-  //   font-family: 'Verdana', sans-sherif;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -39,48 +39,21 @@ button {
   font-weight: 500;
   letter-spacing: 2px;
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 25px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 50px;
   color: white;
 }
 
-// select {
-//   width: 100%;
-//   padding: 12px 12px;
-//   margin: 4px 0;
-//   box-sizing: border-box;
-// }
+.mobilehidden {
+  @media (max-width: 800px){
+    display: none;
+  }
+}
+.desktophiden {
+  @media (min-width: 800px){
+    display: none;
+  }
+}
 
-// form {
-//   width: 420px;
-//   height: 500px;
-//   padding: 12px 20px;
-//   margin: 8px 0;
-//   box-sizing: border-box;
-// }
-
-// button {
-//   width: 100%;
-//   padding: 12px 20px;
-//   margin: 8px 0;
-//   box-sizing: border-box;
-//   box-sizing: border-box;
-//   border-radius: 50px;
-//   color: white;
-// }
-
-// .input-box-container {
-//   position: relative;
-// }
-// .input-box {
-//   padding: 4px 8px;
-//   border-radius: 2px;
-//   border: 1px solid #ccc;
-//   font-size: 16px;
-// }
-
-// table {
-//   table-layout: fixed;
-// }

@@ -1,11 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* 
+  0 - 700px phone
+  1000 - 1800 px Desktoss 
+*/
 
 html {
   background-color: rgb(252, 244, 234);
 }
 
-html, body {
-    font-family: 'Montserrat', sans-serif;
+html,
+body {
+  font-family: "Montserrat", sans-serif;
 }
 .maincolor {
   background-color: rgb(252, 244, 234);
@@ -22,27 +26,51 @@ html, body {
   font-size: 0.55rem;
 }
 
-.pad {
-  position: absolute;
-}
 .centeredUp {
+  @media (min-width: 800px) {
     margin-top: 0;
-    position: fixed; /* or absolute */
+    position: fixed; 
     top: 0;
     left: 12%;
+  }
+  @media (max-width: 800px) {
+    margin: 0 auto;
+    position: relative;
+    top: 4%;
+   
+  }
 }
 .centered {
-  position: fixed; /* or absolute */
-  top: 23%;
-  left: 13%;
+  @media (min-width: 800px) {
+    position: fixed; 
+    top: 23%;
+    left: 13%;
+    height: 400px;
+  }
+  @media (max-width: 800px) {
+    position: fixed;
+    top: 10%;
+    width: 95%;
+    max-height: 250px;
+    width: 21rem;
+  }
 }
 .centeredleft {
-  position: fixed; /* or absolute */
-  top: 35%;
-  left: 50%;
+  @media (min-width: 800px) {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+  }
+  @media (max-width: 800px) {
+    position: fixed;
+    top: 33%;
+    // width: 100%;
+    padding-top: 00.55rem;
+    // left: 50%;
+  }
 }
 
 .placed {
-    border: 2px solid black;
-    padding: 5px;
+  border: 2px solid black;
+  padding: 5px;
 }
