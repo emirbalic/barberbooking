@@ -31,7 +31,7 @@ export class BookingService {
   }
 
   getAppointments() {
-    return this.http.get(this.baseUrl +'appointments').pipe(//<Appointment>
+    return this.http.get(this.baseUrl +'appointments').pipe(
       map(appointments => {
         
         return appointments
@@ -48,11 +48,6 @@ export class BookingService {
   }
 
   bookAppointment(booking: Booking) {
-    // console.log('booking.startDate',booking.startDate);
-    // console.log(typeof(booking.barberId));
-    // console.log(typeof(booking.serviceId));
-
-    // return booking;
 
     return this.http.post(this.baseUrl + 'appointments', {
       startDate: booking.startDate, 

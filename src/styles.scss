@@ -1,6 +1,6 @@
 /* 
-  0 - 700px phone
-  1000 - 1800 px Desktoss 
+  0px - 800px phone
+  800px - 1800 px Desktops 13"
 */
 
 html {
@@ -64,9 +64,7 @@ body {
   @media (max-width: 800px) {
     position: fixed;
     top: 33%;
-    // width: 100%;
     padding-top: 00.55rem;
-    // left: 50%;
   }
 }
 
@@ -74,3 +72,167 @@ body {
   border: 2px solid black;
   padding: 5px;
 }
+
+/* app classes */
+
+#container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+#imgbarber,
+#form {
+  @media (max-width: 800px){
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  };
+  @media (min-width: 1000px){
+    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  };
+}
+#form {
+  z-index: 10;
+}
+
+/* booking classes*/
+
+.table {
+  padding: 4px;
+  max-width: 330px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 4px 9px;
+}
+.table-cell {
+  
+    flex: 1 40%;
+    margin: 4px 4px;
+}
+
+.colspan-3 {
+  font-family: "Squada One", sans-sherif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  flex: 1 100%;
+  width: 100%;
+}
+
+
+@media only screen and (min-width: 800px) {
+  .wide {
+    width: 9rem;
+  }
+  .fullwide {
+    width: 19.4rem;
+  } 
+  select {
+    width: 9.65rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .wide {
+    width: 19.4rem;
+  } 
+  .fullwide {
+    width: 19.4rem;
+  }   
+  select {
+    width: 20rem;
+  }
+}
+input,
+select {
+  color: gray;
+  height: 30px;
+  padding-left: 4px;
+}
+button {
+  font-family: "Roboto Slab", sans-sherif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  width: 100%;
+  padding: 12px 25px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 50px;
+  color: white;
+}
+
+
+
+
+/* header classes*/
+
+h2 {
+  @media (min-width: 800px) {
+    font-family: "Squada One", sans-sherif;
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    height: 10px;
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  @media (max-width: 800px) {
+    font-family: "Squada One", sans-sherif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-align: center;
+    height: 15px;
+    left: 25%;
+    width: 450px;
+    text-align: justify;
+    margin-bottom: 14px;
+    position: relative;
+  }
+}
+
+p {
+  font-family: "Roboto Slab", sans-sherif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: 12px;
+  width: 700px;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  padding-bottom: 2px;
+
+  @media (max-width: 800px) {
+    font-family: "Roboto Slab", sans-sherif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    height: 8px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    left: 30%;
+    margin-top: 2px;
+    margin-bottom: 8px;
+    // margin-left: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+#mobilehidden {
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+

@@ -1,8 +1,7 @@
-import { Component, OnChanges, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 // import { FormControl, FormGroup } from '@angular/forms';
 import { BookingService } from '../_services/booking.service';
 import { Observable } from 'rxjs';
-// import {DatePickerComponent} from 'ng2-date-picker';  
 import { IAngularMyDpOptions, IMyDateModel, Year } from 'angular-mydatepicker';
 import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 
@@ -106,6 +105,10 @@ export class BookingComponent implements OnInit {
 
   phoneValidatorPattern = new RegExp("^\\d{9}$");
   contactNumber?: string;
+
+  //===SUBMIT===
+  isValidFormSubmitted = false;  
+
 
   constructor(private bookingService: BookingService) {//, private ref: ChangeDetectorRef
   }
@@ -225,7 +228,7 @@ export class BookingComponent implements OnInit {
       }
   }
   onTimeSet($event: any) {
-    
+    console.log($event);
     let hours = Utils.formatHoursToUnix($event).hoursUnix; 
     let minutes = Utils.formatMinutesToUnix($event).minuteUnix; 
     
@@ -256,9 +259,9 @@ export class BookingComponent implements OnInit {
             this.appointmentStart = this.appointmentEnds = 0
           }
         } 
-        // else {
-        //   console.log('other appointments on different days')
-        // }
+        else {
+          console.log('other appointments on different days')
+        }
       });
       
     } else {
@@ -367,12 +370,12 @@ export class BookingComponent implements OnInit {
   }
 
   //===SUBMIT===
-  isValidFormSubmitted = false;  
 
   bookBarber() {
     let dateUnix = this.barber.date.singleDate.epoc * 1000;
     let exactDate = Utils.getDateTime(this.barber.time, dateUnix);
-    
+    console.log(dateUnix);
+    console.log(exactDate);
     
     let booking: Booking = {
       startDate: exactDate,
@@ -380,8 +383,8 @@ export class BookingComponent implements OnInit {
       serviceId: this.service.id
     }
 
-    this.bookingService.bookAppointment(booking).subscribe();//response => {}
-    this.addSuccess();
+    // this.bookingService.bookAppointment(booking).subscribe();
+    // this.addSuccess();
   }
   onFormSubmit(bookingForm: NgForm){
 
@@ -390,6 +393,6 @@ export class BookingComponent implements OnInit {
       return;  
    }  
    this.isValidFormSubmitted = true; 
-   this.bookBarber(); 
+  //  this.bookBarber(); 
   }
 }

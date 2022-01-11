@@ -12,9 +12,7 @@ export class AppComponent {
   ) { }
 
   addSucces() {
-    
     this.success = true;
-    
   }
 
 }
